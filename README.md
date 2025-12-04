@@ -3,6 +3,8 @@
 > **Version**: beta 1.0  
 > **License**: MIT
 
+![the-it-crowd-chris-odowd](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaWVram9meWxoNGJxaDd5bmlmMWU0N2lvNjg2aHZhZXJvY3ozdW10eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1C8bHHJturSx2/giphy.gif)
+
 **omd-press** is a lightweight, open-source blogging platform powered by Markdown and JavaScript. It allows you to publish articles easily without the need for a complex backend or database.
 
 ## 🚀 Features
