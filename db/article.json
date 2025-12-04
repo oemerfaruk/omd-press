@@ -1,0 +1,31 @@
+{
+    "article": [
+        {
+            "id": 1,
+            "link": "ham_fundamentals.md",
+            "title": "Ham Radio Fundamentals",
+            "content": "Content of article 2",
+            "author": "Author 2",
+            "date": "2022-01-02",
+            "thumbnail": "/articles/images/theBlog.png"
+        },
+        {
+            "id": 2,
+            "link": "ham_fundamentals2.md",
+            "title": "Ham Radio Fundamentals - 2",
+            "content": "Content of article 3",
+            "author": "Author 3",
+            "date": "2022-01-03",
+            "thumbnail": "/articles/images/theMan.png"
+        },
+        {
+            "id": 3,
+            "link": "hello_world.md",
+            "title": "Hello World",
+            "content": "Content of article 3",
+            "author": "Author 3",
+            "date": "2022-01-03",
+            "thumbnail": "/articles/images/theMan.png"
+        }
+    ]
+}

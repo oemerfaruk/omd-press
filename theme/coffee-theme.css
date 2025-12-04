@@ -1,0 +1,317 @@
+:root {
+    /* Coffee Palette (Warm Minimalist) */
+    --bg-color: #fdfbf7;
+    /* Cream */
+    --text-color: #4a403a;
+    /* Dark Coffee */
+    --card-bg: #ffffff;
+    --card-border: #e6e2dd;
+    --accent-color: #8c6b5d;
+    /* Latte/Mocha */
+    --accent-hover: #6f4e37;
+    /* Coffee Bean */
+
+    --container-width: 1200px;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    /* Dark Roast Palette */
+    --bg-color: #1a1512;
+    /* Very Dark Brown */
+    --text-color: #e6e2dd;
+    /* Cream Text */
+    --card-bg: #261e1b;
+    /* Dark Espresso */
+    --card-border: #3e322c;
+    --accent-color: #c4a484;
+    /* Light Brown */
+    --accent-hover: #d2b48c;
+    /* Tan */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.search-container {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Curved Search Input */
+#search-input {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 50px;
+    /* Curved */
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(140, 107, 93, 0.1);
+}
+
+.layout-btn,
+.sort-btn {
+    background: none;
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 8px;
+    border-radius: 50%;
+    /* Rounded buttons to match theme */
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: all 0.2s;
+}
+
+.layout-btn:hover,
+.sort-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.layout-btn.active,
+.sort-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* Article List */
+.article-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.article-thumbnail {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.article-content {
+    flex: 1;
+}
+
+.article-date {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+/* Read More Button (Icon) */
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Slight Rotation on Hover */
+.read-more-btn:hover {
+    background-color: var(--accent-hover);
+    transform: rotate(-15deg) scale(1.1);
+}
+
+/* Grid View */
+#article-list.grid-view {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+#article-list.grid-view .article-card {
+    flex-direction: column;
+    padding: 15px;
+    height: 100%;
+}
+
+#article-list.grid-view .article-thumbnail {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+#article-list.grid-view .article-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Article Detail */
+#article-content {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+}
+
+#article-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+/* Rotate on Hover */
+.theme-toggle:hover {
+    transform: rotate(180deg);
+    background-color: var(--card-bg);
+    border-color: var(--accent-color);
+}
+
+/* Progress Bar */
+#progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1000;
+}
+
+#progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: width 0.1s;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    #article-list.grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    #article-list.grid-view {
+        grid-template-columns: 1fr;
+    }
+
+    .article-card {
+        flex-direction: column;
+    }
+
+    .article-thumbnail {
+        width: 100%;
+        height: 150px;
+    }
+}

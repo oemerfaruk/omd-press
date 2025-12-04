@@ -1,0 +1,340 @@
+/* default theme */
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #f9f9f9;
+    --card-border: #e0e0e0;
+    --accent-color: #007bff;
+    --accent-hover: #0056b3;
+    --container-width: 1200px;
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --card-border: #333333;
+    --accent-color: #4da3ff;
+    --accent-hover: #80bfff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Progress Bar (Base) */
+#progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1000;
+}
+
+#progress-bar {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: width 0.1s;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* Article List */
+.article-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    /* Center vertically in list view */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.article-thumbnail {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.article-content {
+    flex: 1;
+}
+
+.article-date {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 5px;
+    /* Reduced margin */
+}
+
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    /* Circular button */
+    transition: background-color 0.2s, transform 0.2s;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+.read-more-btn:hover {
+    background-color: var(--accent-hover);
+    color: white;
+    transform: scale(1.1);
+    text-decoration: none;
+}
+
+/* Article Detail */
+#article-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Tables */
+#article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+#article-content th,
+#article-content td {
+    border: 1px solid var(--card-border);
+    padding: 12px;
+    text-align: left;
+}
+
+#article-content th {
+    background-color: var(--card-bg);
+    font-weight: 600;
+}
+
+#article-content tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--card-bg);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .article-card {
+        flex-direction: column;
+    }
+
+    .article-thumbnail {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/* Grid View */
+#article-list.grid-view {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: 40px;
+    /* Increased gap further */
+}
+
+#article-list.grid-view .article-card {
+    flex-direction: column;
+    margin-bottom: 0;
+    height: 100%;
+    padding: 15px;
+    /* Reduced padding */
+}
+
+#article-list.grid-view .article-thumbnail {
+    width: 100%;
+    height: 100px;
+    /* Further reduced height */
+}
+
+#article-list.grid-view .article-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    /* Center content horizontally */
+    text-align: center;
+    /* Center text */
+}
+
+#article-list.grid-view h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+    #article-list.grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    #article-list.grid-view {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    #article-list.grid-view {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.search-container {
+    flex: 1;
+    min-width: 200px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.layout-btn,
+.sort-btn {
+    background: none;
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layout-btn svg,
+.sort-btn svg {
+    display: block;
+}
+
+.layout-btn.active,
+.sort-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* Removed select styles as it's no longer used */

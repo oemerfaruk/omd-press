@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="theme/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Blog</h1>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                <span id="theme-icon">
+                    <!-- Moon Icon (Colorful) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#4da3ff" stroke="#4da3ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                </span>
+            </button>
+        </header>
+
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search articles..." aria-label="Search articles">
+            </div>
+            <div class="sort-controls">
+                <button class="sort-btn active" data-sort="newest" aria-label="Sort by Newest">
+                    <!-- Arrow Down Wide Narrow -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 16 4 4 4-4"/><path d="M7 20V4"/><path d="M11 4h10"/><path d="M11 8h7"/><path d="M11 12h4"/></svg>
+                </button>
+                <button class="sort-btn" data-sort="oldest" aria-label="Sort by Oldest">
+                    <!-- Arrow Up Wide Narrow -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/><path d="M11 12h4"/><path d="M11 8h7"/><path d="M11 4h10"/></svg>
+                </button>
+
+            </div>
+            <div class="layout-controls">
+                <button class="layout-btn active" data-layout="list" aria-label="List View">
+                    <!-- List -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </button>
+                <button class="layout-btn" data-layout="grid" aria-label="Grid View">
+                    <!-- Grid 2x2 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="article-list"></div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

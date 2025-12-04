@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Article</title>
+    <!-- Open Graph Meta Tags (Placeholders) -->
+    <meta property="og:title" content="Blog Article">
+    <meta property="og:description" content="Read this amazing article on our blog.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
+    <link rel="stylesheet" href="theme/style.css">
+</head>
+<body>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div class="container">
+        <header>
+            <a href="index.html" aria-label="Back to Home">
+                <!-- Arrow Left -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            </a>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                <span id="theme-icon">
+                    <!-- Moon Icon (Colorful) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#4da3ff" stroke="#4da3ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                </span>
+            </button>
+        </header>
+        <div id="article-content"></div>
+    </div>
+
+
+    <script src="js/utils.js"></script>
+    <script src="js/article.js"></script>
+</body>
+</html>
